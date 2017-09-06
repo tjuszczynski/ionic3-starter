@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <img src="{{restaurant.picture}}" width="100%" height="150px"/>
+    <ion-card-content>
+      <h2>{{restaurant.title}}</h2>
+      <p>{{restaurant.address}}, {{restaurant.city}} {{restaurant.state}}</p>
+    </ion-card-content>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let mealItem of restaurant.menu">
+        <div ion-item>
+          <ion-thumbnail item-left>
+            <img src="{{mealItem.picture}}"/>
+          </ion-thumbnail>
+          <h3>{{mealItem.title}}</h3>
+          <p>Cena {{ mealItem.price }}</p>
+          <button ion-button icon-left (click)="orderMeal(mealItem)">
+            <ion-icon name="cart"></ion-icon>
+            Zamów
+          </button>
+        </div>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-item>
+      <button ion-button icon-left (click)="favorite(restaurant)" item-right>
+        <span *ngIf="!restaurant.isFav"><ion-icon name="star"></ion-icon>
+        Dodaj do ulubionych</span>
+        <span *ngIf="restaurant.isFav"><ion-icon name="star"></ion-icon>
+        Usuń z ulubionych</span>
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>

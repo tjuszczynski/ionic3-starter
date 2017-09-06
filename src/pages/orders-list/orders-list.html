@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Zamówienia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="property-list">
+  <ion-list>
+    <ion-item-sliding *ngFor="let mealItem of orders">
+      <div ion-item>
+        <ion-thumbnail item-left>
+          <img src="{{mealItem.picture}}"/>
+        </ion-thumbnail>
+        <h3>{{mealItem.title}}</h3>
+        <p>Cena {{ mealItem.price }}</p>
+        <button ion-button icon-left (click)="deleteOrder(mealItem)">
+          <ion-icon name="trash"></ion-icon>
+          Usuń
+        </button>
+      </div>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

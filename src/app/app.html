@@ -1,0 +1,15 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <img src="assets/img/restaurants-logo.svg" class="menu-logo"/>
+    <ion-list>
+      <ion-list-header>
+        Menu
+      </ion-list-header>
+      <button menuClose ion-item *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+        {{menuItem.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content></ion-nav>

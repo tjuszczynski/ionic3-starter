@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Ulubione</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let favorite of favorites">
+            <button ion-item (click)="openRestaurantDetail(favorite)">
+                <ion-thumbnail item-left>
+                    <img src="{{favorite.thumbnail}}"/>
+                </ion-thumbnail>
+              <h2>{{favorite.title}}</h2>
+              <p>{{favorite.city}}<br>{{favorite.address}}</p>
+            </button>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
